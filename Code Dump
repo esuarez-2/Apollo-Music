@@ -1,4 +1,6 @@
-// Entering & Exiting Full Screen  
+<!-- Entering & Exiting Full Screen  -->
+
+<script>
 
 let myDocument = document.documentElement;
 let full = document.getElementById("fullscreen");
@@ -37,7 +39,11 @@ full.addEventListener("click", ()=>{
     }
 });
 
-// Clicking on Piece   
+</script> 
+
+<!-- Clicking on Piece  --> 
+
+<script type="text/javascript">
 
     $('.piecenamecontainer').on('click', function () {
     $('.horizontal-simple.abs-right').removeClass('active');
@@ -61,45 +67,66 @@ full.addEventListener("click", ()=>{
     document.getElementById("name-text-3").textContent = name;
 
 });
+    
+</script>  
+    
+<!-- Saving Current Page in Memory (For Login)  -->
 
-// Saving Current Page in Memory (For Login)  
-
+<script>
 // sets the url of the page you're on
 localStorage.setItem('locat', location.href);
 
-// Closing All Forms 
+</script>
+
+<!-- Closing All Forms -->
+
+<script> 
 
     $('.cancel,.close-all-forms,.esc,.apollo-button.submit,.apollo-button.cancel, .apollo-button.multi-step').on('click', function() {
         $('.a-form-container').hide()
         $('.forms-container').hide()
     });
+    
+</script> 
 
-// Setting an Active Piece 
+<!-- Setting an Active Piece -->
+
+<script>
 
 $('.widget-icons.star').on('click', function() {
     $('#active-submit').click();
 });
 
+</script>
 
+<!-- toggling side bar --> 
 
-// toggling side bar  
-
- 
+<script> 
 
     $('.side-pannel-toggle,.piecename,.onbaording').on('click', function() {
         $('.content').toggleClass('moooove');
         $('.side-bar-arrow').toggleClass('active');
     });
     
-// disabling auto zoom  
+</script>
+
+
+
+
+<!-- disabling auto zoom --> 
+
+
+<script> 
 
 <meta
     name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-// if, else statment. Widgets  
+</script> 
 
- 
+<!-- if, else statment. Widgets --> 
+
+<script> 
 
 $('.tool-icon').on('click', function() {
     var color = $( this ).css( "background-color" );
@@ -140,8 +167,13 @@ $('.tool-icon').on('click', function() {
 
     });
 
-// removing the address bar  
+</script>
+
+<!-- removing the address bar --> 
+
+<script> 
 
 window.scrollTo(0,1)
 
- 
+</script> 
+
