@@ -87,12 +87,6 @@ $('.widget-icons.star').on('click', function() {
         $('.side-bar-arrow').toggleClass('active');
         console.log("moove added");
     });
-    
-// disabling auto zoom  
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 // if, else statment. Widgets  
 
