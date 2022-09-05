@@ -5,7 +5,7 @@ document.onkeydown = function () {
     console.log("focused");
 }
 
-// if, else statment. Filter --> 
+// if, else statment. Filter  
 
 $('.filter-trigger').on('click', function() {
     var color = $( this ).css("background-color");
@@ -24,7 +24,7 @@ if  ( $( this ).hasClass( "class" ) ) {
 
 });
 
-// hiding form on click of "reset" or piece -->
+// hiding form on click of "reset" or piece 
 
 
 
@@ -36,9 +36,7 @@ $('.reset,.filter-list').on('click',function(){
 
 
 
-// Removing Horizontal Scroll-->
-
-// Removing Horizontal Scroll-->
+// Removing Horizontal Scroll 
 
 $('.ci-testing').on('click', function() { // clicking a piece container
 
@@ -47,6 +45,8 @@ let piecedemo = $(this).find('.demo').text();  // getting the ID .textContent
 let pieceid = $(this).find('.id').text();  // getting the DEMO .textContent
 let piecepdf = $(this).find('.pdf').text();  // getting the PDF .textContent
 
+console.log(piecename,piecedemo,pieceid,piecepdf);
+
 document.getElementById("name").textContent = piecename; // setting name of ACTIVE PIECE
 document.getElementById("demo").textContent = piecedemo; // setting VALUE of ACTIVE PIECE
 document.getElementById("id").textContent = pieceid;  // setting NAME 
@@ -54,10 +54,7 @@ document.getElementById("pdf").textContent = piecepdf;  // setting NAME
 
 });    
 
-
-
-
-// pdf 
+// pdf embed
 
 function renderPdf(fileName, url, id) {
 var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
