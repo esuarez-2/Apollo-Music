@@ -63,7 +63,7 @@ full.addEventListener("click", ()=>{
     document.getElementById("name-4").value = name;
     
     document.getElementById("name-text-1").textContent = name;
-//    document.getElementById("name-text-2").textContent = name;
+<!--    document.getElementById("name-text-2").textContent = name;
     document.getElementById("name-text-3").textContent = name;
 
 });
@@ -73,7 +73,7 @@ full.addEventListener("click", ()=>{
 <!-- Saving Current Page in Memory (For Login)  -->
 
 <script>
-// sets the url of the page you're on
+<!-- sets the url of the page you're on
 localStorage.setItem('locat', location.href);
 
 </script>
@@ -163,3 +163,361 @@ window.scrollTo(0,1)
 
 </script> 
 
+
+<!-- adding in script tags
+
+
+<! -- define a handler --> 
+
+<script>
+
+    document.onkeydown = function () {
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        console.log("focused");
+    }
+</script>
+
+<!-- if, else statment. Filter  --> 
+
+<script>
+    $('.filter-trigger').on('click', function() {
+        var color = $( this ).css("background-color");
+        console.log(color)
+    
+    if  ( $( this ).hasClass( "class" ) ) {
+        $(this).siblings('.filter-trigger').css('background-color', 'rgb(78, 78, 78)').show();
+    
+    } else if (color == "rgb(78, 78, 78)") {
+        $(this).siblings('.filter-trigger').hide().css('background-color', 'rgb(78, 78, 78)');
+        $(this).show().css('background-color', 'rgb(0, 145, 255)');
+    
+    } else if ( $( this ).hasClass( "active" ) ) {
+        $(this).siblings('.filter-trigger').show();
+    };
+    
+    });
+</script>
+
+<!-- hiding form on click of "reset" or piece --> 
+
+<script>
+    $('.reset,.filter-list').on('click',function(){
+        $('.piece-search-form').hide();
+        $('.filter-trigger').hide().css('background-color', 'rgb(78, 78, 78)');
+        $('.filter-trigger.class').show();
+    })
+</script>
+
+
+
+<script>
+    $('.ci-testing').on('click', function() { <!-- clicking a piece container
+    
+    let piecename = $(this).find('.name').text();  <!-- getting the NAME .textContent
+    let piecedemo = $(this).find('.demo').text();  <!-- getting the ID .textContent
+    let pieceid = $(this).find('.id').text();  <!-- getting the DEMO .textContent
+    let piecepdf = $(this).find('.pdf').text();  <!-- getting the PDF .textContent
+    
+    console.log(piecename,piecedemo,pieceid,piecepdf);
+    
+    document.getElementById("name").textContent = piecename; <!-- setting name of ACTIVE PIECE
+    document.getElementById("demo").textContent = piecedemo; <!-- setting VALUE of ACTIVE PIECE
+    document.getElementById("id").textContent = pieceid;  <!-- setting NAME
+    document.getElementById("pdf").textContent = piecepdf;  <!-- setting NAME
+    
+    });
+
+</script>
+
+<!-- pdf embed--> 
+
+function renderPdf(fileName, url, id) {
+var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
+adobeDCView.previewFile({
+    content: { location: { url } },
+    metaData: { fileName, id }
+}, {
+    enableAnnotationAPIs: true,
+    includePDFAnnotations: true,
+}).then(function (adobeViewer) {
+    console.log("id:", id);
+    adobeViewer.getAnnotationManager().then(function (annotationManager) {
+        annotationManager.getAnnotations().then(function (annotations) {
+            console.log("annotations", annotations);
+            annotationManager.addAnnotationsInPDF(annotations).then(function () {
+                console.log("succcess");
+            })
+        })
+    })
+});
+
+adobeDCView.registerCallback(
+    AdobeDC.View.Enum.CallbackType.SAVE_API,
+    function (metadata, content, options) {
+        return new Promise((resolve, reject) => {
+            resolve({
+                code: AdobeDC.View.Enum.ApiResponseCode.SUCCESS,
+                data: { metaData: metadata }
+            });
+        });
+    }, {
+    autoSaveFrequency: 0,
+    enableFocusPolling: false,
+    showSaveButton: true
+});
+};
+
+$('.ci-testing').on('click', function () {
+renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text(), $(this).find('.id').text());
+console.log(fileName, url, id); 
+});
+document.addEventListener("adobe_dc_view_sdk.ready", function () {
+renderPdf("skyfall", "https:<!--uploads-ssl.webflow.com/5fcc62d86ada3843c072ce92/62f459c10a419281d514338b_Adele_-_Skyfall.pdf", "62ea981978ff0023a7519ada")
+});
+
+console.log ("push is working")
+
+
+<! -- Filtering By Member Data  -->
+
+<script>
+
+MemberStack.onReady.then(function(member) {
+    var memberid = member["webflow-member-id"];
+    document.getElementById("member").textContent = memberid;
+});
+
+</script>
+
+<!-- define a handler --> 
+
+<script>
+
+    document.onkeydown = function () {
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        console.log("focused");
+    }
+</script>
+
+<!--Adobe PDF reader -->
+
+<script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script>
+<script type="text/javascript">
+
+    function renderPdf(fileName, url) {
+        var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
+        adobeDCView.previewFile({ 
+                content: { location: { url }}, 
+                metaData: { fileName }
+            }, {
+                defaultViewMode: "FIT_WIDTH",
+                enableSearchAPIs: false,
+                showZoomControl: false,
+                focusOnRendering: false,
+            });
+}
+
+    $('.piecenamecontainer').on('click', function () { 
+        renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text())
+        $('.class-name').focus(); 
+
+});
+    document.addEventListener("adobe_dc_view_sdk.ready", function () { renderPdf("") });
+    
+</script>
+
+<!-- YT logic inital state --> 
+
+<script> 
+
+$( document ).ready(function() {
+    if ("{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"=== "") {
+        $('.tools.yt').hide();
+    };
+});
+
+</script> 
+
+<!-- adding in YT through Click --> 
+
+<script> 
+
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '100%',
+        width: '100%',
+        videoId: '{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}',
+        startSeconds: '5',
+        playerVars: { 
+            autoplay: 0, 
+            disablekb: 0,
+            controls: 1,
+            showinfo: 0,        // Hide the video title
+            modestbranding: 1,  // Hide the Youtube Logo
+            start: "{{wf {&quot;path&quot;:&quot;active-piece:start-time&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}",
+        },
+        events: {
+        'onReady': onPlayerReady
+        }
+    });
+
+}
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+$(function() {
+    $('.cms-piece-item').on('click', function() {
+    let demo = $(this).find('.piecedemo').text();
+    let start = $(this).find('.start').text();
+    console.log(start);
+    player.cueVideoById(demo, start);
+
+    if (demo === "" ){
+        $('.demo-add').show();
+    } else{
+        $('.demo-add').hide();
+    };
+    
+    });
+    
+    });
+
+</script> 
+
+<!-- Adding a space ot a member's profile  -->
+
+<script> // Checks if member is logged in 
+
+    MemberStack.onReady.then(async function(member) {
+    if(member.loggedIn){
+    var metadata = await member.getMetaData();
+
+    // If no metadata.spaces exists, create it in MemberStack.
+        metadata.spaces = metadata.spaces || [];
+
+    // Defines the webflow spaces ID to a const of itemID (Pull this from the CMS)
+        const itemID = "{{wf {&quot;path&quot;:&quot;item-id&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"
+
+    // If they have the item ID in their profile, hide the form, show the 'completed button'
+    if(metadata.spaces.includes(itemID)){
+        document.getElementById('space-added').style.display = 'none';
+    }
+        
+    // When the button is clicked, if the itemID doesn't exist on their profile
+    // add it, then push the metadata to MemberStack. 
+    $('#space-added').click(function(){
+
+            if(metadata.spaces.indexOf(itemID) === -1){
+                metadata.spaces.push(itemID); 
+            member.updateMetaData(metadata);
+
+        }
+        });
+    }
+});
+
+</script>
+
+<!-- Sharing Page For Mobile  -->
+
+<script>
+
+        let shareData = {
+        title: '{{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }} Music Space',
+        url: 'https://www.clairmusic.com/spaces/{{wf {&quot;path&quot;:&quot;slug&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}',
+        }
+
+        const btn = document.querySelector('.tag.share');
+
+        btn.addEventListener('click', () => {
+        navigator.share(shareData)
+});
+
+</script>
+
+<!-- showing the star if the space is private  --> 
+
+<script>
+
+    if ({{wf {&quot;path&quot;:&quot;private&quot;,&quot;type&quot;:&quot;Bool&quot;\} }} == "0")
+    $('.horizontal-simple.abs-right,.category.add,.tool-icon.edit').hide();
+    
+</script> 
+
+<!-- Removing Horizontal Scroll-->
+
+<style>
+.side-bar-inner,.piece-serach-container {
+overflow-x: hidden;
+}, 
+</style>
+
+<!-- if, else statment. Filter  --> 
+
+<script>
+    $('.filter-trigger').on('click', function() {
+        var color = $( this ).css("background-color");
+        console.log(color)
+    
+    if  ( $( this ).hasClass( "class" ) ) {
+        $(this).siblings('.filter-trigger').css('background-color', 'rgb(78, 78, 78)').show();
+    
+    } else if (color == "rgb(78, 78, 78)") {
+        $(this).siblings('.filter-trigger').hide().css('background-color', 'rgb(78, 78, 78)');
+        $(this).show().css('background-color', 'rgb(0, 145, 255)');
+    
+    } else if ( $( this ).hasClass( "active" ) ) {
+        $(this).siblings('.filter-trigger').show();
+    };
+    
+    });
+</script>
+
+<!-- hiding form on click of "reset" or piece --> 
+
+<script>
+
+    $('.reset,.filter-list,.exit-filter').on('click', function(){
+        $('.piece-search-form').hide();
+        $('.filter-trigger').hide().css('background-color', 'rgb(78, 78, 78)');
+        $('.filter-trigger.class').show();
+        $('#search').val('');
+        $('.body-apollo').focus();
+        $('.side-nav').click();
+        console.log("body focused");
+    })
+    
+</script>
+
+<!--  load any GitHub release, commit, or branch -->
+<script src = "https://cdn.jsdelivr.net/gh/esuarez-2/Apollo-Music@76f222be89d3d7d879a4c783aef52d1eb11267fd/spaces.js"> </script>
+
+<script> 
+
+const input = document.getElementById('adobe-dc-view');
+input.blur();
+
+</script> 
+
+<script> 
+
+    const search = document.getElementById('search');
+    search.autofocus();
+    
+</script> 
+
+<script>
+
+    function focusSearch() {
+    $('.space-search').focus();
+    };
+
+</script>

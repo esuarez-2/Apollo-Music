@@ -85,6 +85,7 @@ $('.widget-icons.star').on('click', function() {
     $('.side-pannel-toggle,.piecename,.onbaording').on('click', function() {
         $('.content').toggleClass('moooove');
         $('.side-bar-arrow').toggleClass('active');
+        $('.piece-search-form').toggleClass('piece-search-form');
         console.log("moove added");
     });
 
