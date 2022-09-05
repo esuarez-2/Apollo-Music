@@ -26,15 +26,11 @@ if  ( $( this ).hasClass( "class" ) ) {
 
 // hiding form on click of "reset" or piece 
 
-
-
 $('.reset,.filter-list').on('click',function(){
     $('.piece-search-form').hide();
     $('.filter-trigger').hide().css('background-color', 'rgb(78, 78, 78)');
     $('.filter-trigger.class').show();
 })
-
-
 
 // Removing Horizontal Scroll 
 
