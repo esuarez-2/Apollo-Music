@@ -80,15 +80,12 @@ $('.widget-icons.star').on('click', function() {
     $('#active-submit').click();
 });
 
-
-
 // toggling side bar  
-
- 
 
     $('.side-pannel-toggle,.piecename,.onbaording').on('click', function() {
         $('.content').toggleClass('moooove');
         $('.side-bar-arrow').toggleClass('active');
+        console.log("moove added");
     });
     
 // disabling auto zoom  
