@@ -100,4 +100,4 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
 renderPdf("skyfall", "https://uploads-ssl.webflow.com/5fcc62d86ada3843c072ce92/62f459c10a419281d514338b_Adele_-_Skyfall.pdf", "62ea981978ff0023a7519ada")
 });
 
-console.log ("testing-complete")
+console.log ("push is working")
