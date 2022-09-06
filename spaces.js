@@ -83,9 +83,11 @@ $('.widget-icons.star').on('click', function() {
 // toggling side bar  
 
     $('.side-pannel-toggle,.piecename,.onbaording').on('click', function() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        console.log(w,h);
         $('.content').toggleClass('moooove');
         $('.side-bar-arrow').toggleClass('active');
-        $('.piece-search-form').toggleClass('mooove');
         console.log("moove added");
     });
 
@@ -136,4 +138,4 @@ $('.tool-icon').on('click', function() {
 
 window.scrollTo(0,1)
 
- 
+    
