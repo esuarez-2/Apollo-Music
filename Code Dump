@@ -1,25 +1,69 @@
-
-<script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script>
 <script type="text/javascript">
 
-    function renderPdf(fileName, url) {
-        var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
-        adobeDCView.previewFile({ 
-                content: { location: { url }}, 
-                metaData: { fileName }
-            }, {embedMode: "FULL_WINDOW",
-                defaultViewMode: "FIT_WIDTH",
-                focusOnRendering: false,
-                enableSearchAPIs: false,
-                showZoomControl: false,
-                enableLinearization: true,
-                enableSearchAPIs: false,
-                showBookmarks: false,
-            });
+    $('.filter-trigger').on('click', function() {
+    var color = $( this ).css( "background-color" );
+    console.log(color);
 
-}
+    if  ( $( this ).hasClass( "class" ) ) {
+        $('.filter-class').hide();
+        $(this).closest('.filter-class').show();
+        $(this).siblings('.filter-trigger').show();
+    } else if ( $( this ).hasClass( "family" ) ) {
+        let familyName = $(this).text();
+        console.log(familyName);
+        $(this).siblings('.filter-trigger.class').css('background-color', 'rgb(0, 145, 255)');
+        $(this).siblings('.filter-trigger.class').find('.x').show();
+        $(this).closest('.filter-class').find('.class-name').textContent = familyName;
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    } else if (color == "rgb(0, 145, 255)") {
+        console.log('color is blue');
+        $(this).css('background-color', 'rgb(78, 78, 78)');
+        $(this).find('.x').hide();
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    };
+    
+    });
 
-    $('.piecenamecontainer').on('click', function () {renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text()) });
-    document.addEventListener("adobe_dc_view_sdk.ready", function () { renderPdf("{{wf {&quot;path&quot;:&quot;active-piece:name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}", "{{wf {&quot;path&quot;:&quot;active-piece:pdf&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}") });
+</script>
+
+<!-- hiding form on click of "reset" or piece --> 
+
+<script>
+
+    $('.reset,.filter-list,.exit-filter').on('click', function(){
+        $('.piece-search-form').hide();
+        $('.x.class').hide();
+        $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+        $('.filter-trigger.class').show();
+        $('#search').val('');
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    })
+    
+</script>
+
+<script>
+
+    $('.search-icon').on('click', function() {
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+        $('.x.class').hide();
+        
+    });
+    
+</script>
+
+<script>
+
+    $('.x.reset').on('click', function() {
+        
+        $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+        
+    });
     
 </script>

@@ -57,7 +57,6 @@ full.addEventListener("click", ()=>{
     document.getElementById("name-4").value = name;
     
     document.getElementById("name-text-1").textContent = name;
-//    document.getElementById("name-text-2").textContent = name;
     document.getElementById("name-text-3").textContent = name;
 
 });
@@ -65,6 +64,7 @@ full.addEventListener("click", ()=>{
 // Saving Current Page in Memory (For Login)  
 
 // sets the url of the page you're on
+
 localStorage.setItem('locat', location.href);
 
 // Closing All Forms 
@@ -82,18 +82,19 @@ $('.widget-icons.star').on('click', function() {
 
 // toggling side bar  
 
-    $('.side-pannel-toggle,.piecename,.onbaording').on('click', function() {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        console.log(w,h);
-        $('.content').toggleClass('moooove');
-        $('.side-bar-arrow').toggleClass('active');
-        console.log("moove added");
-    });
+$('.side-pannel-toggle,.onbaording').on('click', function() {
+    $('.content').toggleClass('moooove');
+    $('.side-bar-arrow').toggleClass('active');
+});
+
+//
+
+$('.piecename').on('click', function() {
+    $('.content').addClass('moooove');
+    $('.side-bar-arrow').addClass('active');
+});
 
 // if, else statment. Widgets  
-
- 
 
 $('.tool-icon').on('click', function() {
     var color = $( this ).css( "background-color" );
@@ -137,5 +138,92 @@ $('.tool-icon').on('click', function() {
 // removing the address bar  
 
 window.scrollTo(0,1)
+
+// Opening Search
+
+$('.search-icon').on('click', function() {
+    $('.piece-search-form').show();
+    $('.space-search').focus();
+    $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+    $('.x.class').hide();
+    
+});
+
+$('.x.reset').on('click', function() {
+    
+    $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+    $('.filter-trigger.family').hide();
+    $('.filter-class').show();
+    
+});
+    
+//IF ELSE STATMENT, searchFILTER 
+
+    $('.filter-trigger').on('click', function() {
+    var color = $( this ).css( "background-color" );
+		console.log(color);
+
+    if  ( $( this ).hasClass( "class" ) ) {
+        $('.filter-class').hide();
+        $(this).closest('.filter-class').show();
+        $(this).siblings('.filter-trigger').show();
+    } else if ( $( this ).hasClass( "family" ) ) {
+        let familyName = $(this).text();
+        console.log(familyName);
+        $(this).siblings('.filter-trigger.class').css('background-color', 'rgb(0, 145, 255)');
+        $(this).siblings('.filter-trigger.class').find('.x').show();
+        $(this).closest('.filter-class').find('.class-name').textContent = familyName;
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    } else if (color == "rgb(0, 145, 255)") {
+        console.log('color is blue');
+        $(this).css('background-color', 'rgb(78, 78, 78)');
+        $(this).find('.x').hide();
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    };
+    
+    });
+
+
+//reset search form  
+
+    $('.reset,.filter-list,.exit-filter').on('click', function(){
+        $('.piece-search-form').hide();
+        $('.x.class').hide();
+        $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+        $('.filter-trigger.class').show();
+        $('#search').val('');
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+    })
+
+    $('.x.class').on('click', function() {
+        
+        $(this).closest('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
+        $(this).hide();
+        $('.filter-trigger.family').hide();
+        $('.filter-class').show();
+        
+    });
+    
+
+/* BUGS
+
+1. pdf focusing on-render
+2. youtube autoplaying
+3. Turn on/off triggers based on width ()
+4. combine doesnt allow for empty state
+5. down-arrow, focus next
+6. enter, click focused item
+7. code logic - passing text value into parent name
+
+    /*    if (event.keyCode === 40) {
+            $('.piecenamecontainer.search').focus();
+            console.log('piecefocused')
+ */
+
+
+
 
     
