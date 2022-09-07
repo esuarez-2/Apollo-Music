@@ -145,7 +145,6 @@ $('.search-icon').on('click', function() {
     $('.piece-search-form').show();
     $('.space-search').focus();
     $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
-    $('.x.class').hide();
     
 });
 
@@ -171,14 +170,12 @@ $('.x.reset').on('click', function() {
         let familyName = $(this).text();
         console.log(familyName);
         $(this).siblings('.filter-trigger.class').css('background-color', 'rgb(0, 145, 255)');
-        $(this).siblings('.filter-trigger.class').find('.x').show();
         $(this).closest('.filter-class').find('.class-name').textContent = familyName;
         $('.filter-trigger.family').hide();
         $('.filter-class').show();
     } else if (color == "rgb(0, 145, 255)") {
         console.log('color is blue');
         $(this).css('background-color', 'rgb(78, 78, 78)');
-        $(this).find('.x').hide();
         $('.filter-trigger.family').hide();
         $('.filter-class').show();
     };
@@ -190,7 +187,6 @@ $('.x.reset').on('click', function() {
 
     $('.reset,.filter-list,.exit-filter').on('click', function(){
         $('.piece-search-form').hide();
-        $('.x.class').hide();
         $('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
         $('.filter-trigger.class').show();
         $('#search').val('');
