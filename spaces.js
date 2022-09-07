@@ -198,7 +198,7 @@ $('.x.reset').on('click', function() {
         $('.filter-class').show();
     })
 
-    $('.x.class').on('click', function() {
+    $('.x').on('click', function() {
         
         $(this).closest('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
         $(this).hide();
