@@ -89,9 +89,9 @@ $('.side-pannel-toggle,.onbaording').on('click', function() {
 
 //
 
-$('.piecename').on('click', function() {
-    $('.content').addClass('moooove');
-    $('.side-bar-arrow').addClass('active');
+$('.piecenamecontainer').on('click', function() {
+    $('.content').removeClass('moooove');
+    $('.side-bar-arrow').removeClass('active');
 });
 
 // if, else statment. Widgets  
