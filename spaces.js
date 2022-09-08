@@ -1,4 +1,4 @@
-// Entering & Exiting Full Screen  
+// Entering & Exiting Full Screen
 
 let myDocument = document.documentElement;
 let full = document.getElementById("fullscreen");
@@ -197,7 +197,6 @@ $('.x.reset').on('click', function() {
     $('.x').on('click', function() {
         
         $(this).closest('.filter-trigger.class').css('background-color', 'rgb(78, 78, 78)');
-        $(this).hide();
         $('.filter-trigger.family').hide();
         $('.filter-class').show();
         
@@ -218,8 +217,6 @@ $('.x.reset').on('click', function() {
             $('.piecenamecontainer.search').focus();
             console.log('piecefocused')
  */
-
-
 
 
     
