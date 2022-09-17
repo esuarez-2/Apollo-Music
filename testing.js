@@ -1,3 +1,20 @@
+// passing new SRC value
+
+$('.piece-container').on('click', function() {
+    console.log("piece clicked");
+        let tempo = $(this).find('.tempo').text();
+        console.log("new tempo",tempo);
+        let timeSignature = $(this).find('.time-signature').text();
+        console.log("new timeSig=",timeSignature);
+        let text1 ="\"";
+        let newSrc =text1.concat("https://guitarapp.com/metronome-embed.html?tempo=",tempo,"\""); 
+        console.log("new src",newSrc);
+        
+        document.getElementById("metronome").src = newSrc;
+        console.log("src moved");
+
+    });
+
 // define a handler
 document.onkeydown = function () {
     $('.piece-search-form').show();
