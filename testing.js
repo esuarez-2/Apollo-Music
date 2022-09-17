@@ -1,19 +1,19 @@
 // passing new SRC value
 
 $('.piece-container').on('click', function() {
-    console.log("piece clicked");
-        let tempo = $(this).find('.tempo').text();
-        console.log("new tempo",tempo);
-        let timeSignature = $(this).find('.time-signature').text();
-        console.log("new timeSig=",timeSignature);
-        let text1 ="\"";
-        let newSrc =text1.concat("https://guitarapp.com/metronome-embed.html?tempo=",tempo,"\""); 
-        console.log("new src",newSrc);
-        
-        document.getElementById("metronome").src = newSrc;
-        console.log("src moved");
 
-    });
+    let tempo = $(this).find('.tempo').text();
+    let demo = $(this).find('.demo').text();
+    let timeSignature = $(this).find('.time-signature').text();
+    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=?";
+    let ytURL = "https://www.youtube.com/"
+    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
+    let newYTSrc = ytURL.concat(demo,"?t=17");
+    console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
+
+    $('iframe').attr('src', $('iframe').attr('src'));
+
+});
 
 // define a handler
 document.onkeydown = function () {
@@ -101,6 +101,7 @@ adobeDCView.registerCallback(
 $('.ci-testing').on('click', function () {
 renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text(), $(this).find('.id').text());
 });
+
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
 renderPdf("skyfall", "https://uploads-ssl.webflow.com/5fcc62d86ada3843c072ce92/62f459c10a419281d514338b_Adele_-_Skyfall.pdf", "62ea981978ff0023a7519ada")
 });

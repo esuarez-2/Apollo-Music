@@ -2,18 +2,20 @@
 
 <!-- new tempo on Click -->
 
-<script> 
+<script>
 
-    $('.piece-container')on('click'){
-        let tempo = $(this).find('.tempo').text();
-        console.log(tempo);
-        let timeSignature = $(this).find('.time-signature').text();
-        console.log(timeSignature);
-        let text1 = "https://guitarapp.com/metronome-embed.html?";
-        let newSrc = text1.concat("tempo=",tempo); 
-        console.log(newSrc);
-        document.getElementById("tempo").src = newSrc; 
-    },
+    $('.piece-container').on('click', function() {
+        console.log("piece clicked");
+            let tempo = $(this).find('.tempo').text();
+            console.log("new tempo= ",tempo);
+            let timeSignature = $(this).find('.time-signature').text();
+            console.log("new timeSig= ",timeSignature);
+            let text1 ="\"";
+            let newSrc =text1.concat("https://guitarapp.com/metronome-embed.html?tempo=",tempo,"\""); 
+            console.log("new src= ",newSrc);
+            $('#metronome').attr('src', newSrc);
+            document.getElementById("metronome").src = newSrc; 
+        });
 
 </script>
 
