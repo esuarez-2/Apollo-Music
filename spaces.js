@@ -219,4 +219,17 @@ $('.x.reset').on('click', function() {
  */
 
 
+// converting tiggers into JS & Jquery
+
+// space-icon hover in/out
+
+$('.space-icon').on('mouseenter', function() {
+    $(this).addClass('hover');
+    $(this).sibling('modal-bg-blur').addClass('hover');
+});
+
+$('.space-icon').on('mouseenter', function() {
+    $(this).removeClass('hover');
+    $(this).sibling('modal-bg-blur').removeClass('hover');
+});
     
