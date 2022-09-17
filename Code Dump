@@ -1,0 +1,25 @@
+
+
+<!-- new tempo on Click -->
+
+<script> 
+
+    $('.piece-container')on('click'){
+        let tempo = $(this).find('.tempo').text();
+        console.log(tempo);
+        let timeSignature = $(this).find('.time-signature').text();
+        console.log(timeSignature);
+        let text1 = "https://guitarapp.com/metronome-embed.html?";
+        let newSrc = text1.concat("tempo=",tempo); 
+        console.log(newSrc);
+        document.getElementById("tempo").src = newSrc; 
+    },
+
+</script>
+
+<iframe
+src="https://guitarapp.com/metronome-embed.html?tempo=65&timeSignature=2&pattern=1"
+title="Online Metronome" 
+style="width: 360px; height:520px; border-style: none; border-radius: 4px;"> 
+</iframe>
+

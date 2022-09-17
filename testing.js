@@ -2,14 +2,12 @@
 document.onkeydown = function () {
     $('.piece-search-form').show();
     $('.space-search').focus();
-    console.log("focused");
 }
 
 // if, else statment. Filter  
 
 $('.filter-trigger').on('click', function() {
     var color = $( this ).css("background-color");
-    console.log(color)
 
 if  ( $( this ).hasClass( "class" ) ) {
     $(this).siblings('.filter-trigger').css('background-color', 'rgb(78, 78, 78)').show();
@@ -41,8 +39,6 @@ let piecedemo = $(this).find('.demo').text();  // getting the ID .textContent
 let pieceid = $(this).find('.id').text();  // getting the DEMO .textContent
 let piecepdf = $(this).find('.pdf').text();  // getting the PDF .textContent
 
-console.log(piecename,piecedemo,pieceid,piecepdf);
-
 document.getElementById("name").textContent = piecename; // setting name of ACTIVE PIECE
 document.getElementById("demo").textContent = piecedemo; // setting VALUE of ACTIVE PIECE
 document.getElementById("id").textContent = pieceid;  // setting NAME 
@@ -61,12 +57,9 @@ adobeDCView.previewFile({
     enableAnnotationAPIs: true,
     includePDFAnnotations: true,
 }).then(function (adobeViewer) {
-    console.log("id:", id);
     adobeViewer.getAnnotationManager().then(function (annotationManager) {
         annotationManager.getAnnotations().then(function (annotations) {
-            console.log("annotations", annotations);
             annotationManager.addAnnotationsInPDF(annotations).then(function () {
-                console.log("succcess");
             })
         })
     })
@@ -90,10 +83,7 @@ adobeDCView.registerCallback(
 
 $('.ci-testing').on('click', function () {
 renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text(), $(this).find('.id').text());
-console.log(fileName, url, id); 
 });
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
 renderPdf("skyfall", "https://uploads-ssl.webflow.com/5fcc62d86ada3843c072ce92/62f459c10a419281d514338b_Adele_-_Skyfall.pdf", "62ea981978ff0023a7519ada")
 });
-
-console.log ("push is working")
