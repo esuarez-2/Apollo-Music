@@ -259,7 +259,7 @@ $('.x.reset').on('click', function() {
         $('.a-form-container.demo-video').show();
     });
 
-    $('.tag.zoom,area-button.zoom').on('click', function() {
+    $('.tag.zoom.edit,area-button.zoom').on('click', function() {
         $('.forms-container.edit').show().css('display', 'flex');
         $('.a-form-container.zoom-link').show();
     });
@@ -333,7 +333,12 @@ $('.x.reset').on('click', function() {
 
 // all other categories
     
-    $('#login').on('click', function() {
+    $('.profile-button.login').on('click', function() {
+        $('.forms-container.add').show().css('display', 'flex');
+        $('.a-form-container.login').show();
+    });
+
+    $('.profile-button.signup').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.login').show();
     });
@@ -346,6 +351,20 @@ $('.x.reset').on('click', function() {
     $('#new-space').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.new-space').show();
+    });
+
+    $('.area-button.remove').on('click', function() {
+        $('.forms-container.delete').show().css('display', 'flex');
+        $('.a-form-container.space-remove').show();
+    });
+
+    $('.checkbox-cover').on('click', function() {
+        $(this).closest('checkbox-field').toggleClass('active');
+    });
+
+    $('.star').on('click', function() {
+        $('.active-piece').removeClass('active-piece');
+        $(this).addClass('active-piece');
     });
 
 // widget hover out
