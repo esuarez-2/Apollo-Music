@@ -367,6 +367,11 @@ $('.x.reset').on('click', function() {
         $(this).addClass('active-piece');
     });
 
+    $('.piecenamecontainer').on('click', function() {
+        $('.active-piece-edit').removeClass('active-piece-edit');
+        $(this).siblings('.horizontal-simple').addClass('active-piece-edit');
+    });
+
 // widget hover out
 
     $('.tool-icon').on('mouseenter mouseleave', function() {
