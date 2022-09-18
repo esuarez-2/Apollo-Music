@@ -400,7 +400,7 @@ $('.x.reset').on('click', function() {
         $(this).removeClass('hover');
         $(this).siblings('.modal-bg-blur').removeClass('hover-dark');
         $(this).siblings('.modal-bg-blur').hider();
-        $('.space-div').css('opacity', '0%');
+        $this.find('.space-div').css('opacity', '0%');
     });
 
     $('.modal-bg-blur').on('mouseleave', function() {
