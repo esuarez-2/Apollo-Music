@@ -254,12 +254,12 @@ $('.x.reset').on('click', function() {
         $('.a-form-container.edit-playlists').show();
     });
 
-    $('#editdemo,area-button.demo').on('click', function() {
+    $('#editdemo,.area-button.demo,.demo-add').on('click', function() {
         $('.forms-container.edit').show().css('display', 'flex');
         $('.a-form-container.demo-video').show();
     });
 
-    $('.tag.zoom.edit,area-button.zoom').on('click', function() {
+    $('.area-button.zoom,.tag.zoom.edit').on('click', function() {
         $('.forms-container.edit').show().css('display', 'flex');
         $('.a-form-container.zoom-link').show();
     });
@@ -325,7 +325,7 @@ $('.x.reset').on('click', function() {
 
 // toggling category visibility
 
-    $('.horizontal-simple.playlists').on('click', function() {
+    $('.horizontal-simple.playlists,.area-button.playlists').on('click', function() {
         $(this).closest('.category').find('.collapsing-container').toggleClass('hide');
         $('.channel-mini-icon').toggleClass('rotate');
 
@@ -375,7 +375,21 @@ $('.x.reset').on('click', function() {
 // widget hover out
 
     $('.tool-icon').on('mouseenter mouseleave', function() {
-        $(this).siblings('.modal-bg-blur').toggleClass('active');
+        $(this).find('.modal-bg-blur').toggleClass('active');
+    });
+
+// space hover in/out
+
+    $('.tool-icon').on('mouseenter', function() {
+        $(this).addClass('hover');
+        $(this).siblings('.modal-bg-blur').addClass('hover-dark');
+        $('.space-div').css('opacity', '100%');
+    });
+
+    $('.tool-icon').on('mouseleave', function() {
+        $(this).removeClass('hover');
+        $(this).siblings('.modal-bg-blur').removeClass('hover-dark');
+        $('.space-div').css('opacity', '0%');
     });
     
 
