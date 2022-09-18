@@ -375,13 +375,12 @@ $('.x.reset').on('click', function() {
 // widget hover out
 
     $('.tool-icon').on('mouseenter mouseleave', function() {
-        $(this).toggleClass('.hovered');
-        $(this).find('.modal-bg-blur.widgets').toggleClass('active');
+        $(this).find('.modal-bg-blur.widgets').show().toggleClass('active');
     });
 
 // space hover in/out
 
-    $('.space-icon.new-area.modal-space,space-icon.modal-hover').on('mouseenter', function() {
+    $('.space-icon.new-area.modal-space,.space-icon.modal-hover').on('mouseenter', function() {
         $(this).addClass('hover');
         $(this).siblings('.modal-bg-blur').show();
         $(this).siblings('.modal-bg-blur').addClass('hover');
@@ -393,13 +392,14 @@ $('.x.reset').on('click', function() {
 
     $('.space-icon.space').on('mouseenter', function() {
         $(this).addClass('hover');
-        $(this).siblings('.modal-bg-blur').addClass('hover-dark');
+        $(this).siblings('.modal-bg-blur').show().addClass('hover-dark');
         $(this).find('.space-div').css('opacity', '100%');
     });
 
     $('.space-icon.space').on('mouseleave', function() {
         $(this).removeClass('hover');
         $(this).siblings('.modal-bg-blur').removeClass('hover-dark');
+        $(this).siblings('.modal-bg-blur').hider();
         $('.space-div').css('opacity', '0%');
     });
 
