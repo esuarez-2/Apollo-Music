@@ -405,6 +405,3 @@ $('.x.reset').on('click', function() {
     $('.modal-bg-blur').on('mouseleave', function() {
         $(this).removeClass('hover');
       });
-    
-
-<script> 
