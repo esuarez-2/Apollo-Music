@@ -380,16 +380,31 @@ $('.x.reset').on('click', function() {
 
 // space hover in/out
 
-    $('.tool-icon').on('mouseenter', function() {
+    $('.space-icon.new-area.modal-space,space-icon.modal-hover').on('mouseenter', function() {
+        $(this).addClass('hover');
+        $(this).siblings('.modal-bg-blur').show();
+        $(this).siblings('.modal-bg-blur').addClass('hover');
+    });
+    
+    $('.space-icon.new-area.modal-space').on('mouseleave', function() {
+        $(this).removeClass('hover');
+    });
+
+    $('.space-icon.space').on('mouseenter', function() {
         $(this).addClass('hover');
         $(this).siblings('.modal-bg-blur').addClass('hover-dark');
         $('.space-div').css('opacity', '100%');
     });
 
-    $('.tool-icon').on('mouseleave', function() {
+    $('.space-icon.space').on('mouseleave', function() {
         $(this).removeClass('hover');
         $(this).siblings('.modal-bg-blur').removeClass('hover-dark');
         $('.space-div').css('opacity', '0%');
     });
+
+    $('.modal-bg-blur').on('mouseleave', function() {
+        $(this).removeClass('hover');
+      });
     
 
+<script> 
