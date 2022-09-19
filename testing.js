@@ -6,14 +6,15 @@ $('.piece-container').on('click', function() {
     let demo = $(this).find('.demo').text();
     let timeSignature = $(this).find('.time-signature').text();
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=?";
-    let ytURL = "https://www.youtube.com/"
+    let ytURL = "https://www.youtube.com/embed/"
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
     let newYTSrc = ytURL.concat(demo,"?t=17");
     console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
 
     $('#youtube').attr('src', newYTSrc);
     $('#metronome').attr('src', newMetronomeSrc);
-    $('iframe').attr('src', $('iframe').attr('src'));
+    $('#youtube')[0].contentWindow.location.reload(true);
+    $('#metronome')[0].contentWindow.location.reload(true);
 
 });
 
