@@ -1,3 +1,46 @@
+// replacing SCR's • YT & Metronome
+
+$('.piecenamecontainer').on('click', function() {
+
+    console.log("space edit working");
+
+// getting values from 'click' of piecename
+    $('.tool,.youtube-iframe').show();
+    $('.set-value-modal').hide();
+    
+    let tempo = $(this).find('.tempo').text();
+    let demo = $(this).find('.piecedemo').text();
+    let time = $(this).find('.start').text();
+    let timeSignature = $(this).find('.pattern').text();
+    
+// null states for SRC's
+    if (demo === "") {
+    $('.youtube-iframe').hide()};
+    if (tempo === "") {
+    $('.set-value-modal').show().css('display', 'flex');};
+
+// combining URL's to add into SRC's
+    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
+    let ytURL = "https://www.youtube.com/embed/";
+    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
+    let newYTSrc = ytURL.concat(demo,"?start=",time);
+    console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
+
+// transpanting src's and reloading iframes
+    $('#youtube').attr('src', newYTSrc);
+    $('#metronome').attr('src', newMetronomeSrc);
+    $('#youtube')[0].contentWindow.location.reload(true);
+    $('#metronome')[0].contentWindow.location.reload(true);
+
+    });
+
+// exiting the youtube / tempo modal
+
+$('.exit-modal').on('click', function(){
+    $(this).closest('.modal-container').hide();
+});
+
+
 // Entering & Exiting Full Screen
 
 let myDocument = document.documentElement;
