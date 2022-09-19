@@ -5,10 +5,10 @@ $('.piece-container').on('click', function() {
     let tempo = $(this).find('.tempo').text();
     let demo = $(this).find('.demo').text();
     let timeSignature = $(this).find('.time-signature').text();
-    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=?";
+    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
     let ytURL = "https://www.youtube.com/embed/"
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
-    let newYTSrc = ytURL.concat(demo,"?t=17");
+    let newYTSrc = ytURL.concat(demo,"t=17");
     console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
 
     $('#youtube').attr('src', newYTSrc);
@@ -16,7 +16,26 @@ $('.piece-container').on('click', function() {
     $('#youtube')[0].contentWindow.location.reload(true);
     $('#metronome')[0].contentWindow.location.reload(true);
 
+    if (demo=== "") {
+        $('#youtube').hide();
+    };
+
+    if (tempo=== "") {
+        $('#metronome').hide();
+    };
+
+    });
+
+$('.exit-modal').on('click', function(){
+    $(this).closest('.modal-container').hide();
 });
+
+    /* 
+        1. if youtube is empty, show .add, hide, YT player 
+        2. if demo is emptry ~ same 
+        3. add form fields (youtube, metronome) 
+        4. 
+    */ 
 
 // define a handler
 document.onkeydown = function () {
