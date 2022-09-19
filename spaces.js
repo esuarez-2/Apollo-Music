@@ -100,6 +100,7 @@ $('.piecenamecontainer').on('click', function() {
 // if, else statment. Widgets  
 
 $('.tool-icon').on('click', function() {
+    $('.set-value-modal').hide();
     var color = $( this ).css( "background-color" );
     $('.tool-icon').css('background-color', '#2f3136');
     $('.tools,.tool,.black-bottom').hide();
@@ -432,7 +433,7 @@ $('.piecenamecontainer').on('click', function() {
     
 // null states for SRC's
     if (demo === "") {
-    $('.youtube-iframe').hide()};
+    $('.set-value-modal.yt').show().css('display', 'flex');};
     if (tempo === "") {
     $('.set-value-modal.tempo').show().css('display', 'flex');};
 
