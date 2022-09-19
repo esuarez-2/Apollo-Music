@@ -87,7 +87,7 @@ $('.side-pannel-toggle,.onbaording').on('click', function() {
     $('.side-bar-arrow').toggleClass('active');
 });
 
-//
+// piecename sidebar toggle
 
 $('.piecenamecontainer').on('click', function() {
     $('.content').removeClass('moooove');
@@ -254,7 +254,7 @@ $('.x.reset').on('click', function() {
         $('.a-form-container.edit-playlists').show();
     });
 
-    $('#editdemo,.area-button.demo,.demo-add').on('click', function() {
+    $('#editdemo,.area-button.demo,.set-value-modal.yt').on('click', function() {
         $('.forms-container.edit').show().css('display', 'flex');
         $('.a-form-container.demo-video').show();
     });
@@ -370,6 +370,11 @@ $('.x.reset').on('click', function() {
     $('.piecenamecontainer').on('click', function() {
         $('.active-piece-edit').removeClass('active-piece-edit');
         $(this).siblings('.horizontal-simple').addClass('active-piece-edit');
+    });
+
+    $('.set-value-modal.tempo').on('click', function() {
+        $('.forms-container.edit').show().css('display', 'flex');
+        $('.a-form-container.new-tempo').show();
     });
 
 // widget hover out

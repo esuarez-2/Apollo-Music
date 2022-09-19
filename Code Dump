@@ -29,7 +29,55 @@ style="width: 360px; height:520px; border-style: none; border-radius: 4px;">
 </iframe>
 
 
+<!-- adding in YT through Click --> 
 
+<script> 
 
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '100%',
+        width: '100%',
+        videoId: '{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}',
+        startSeconds: '5',
+        playerVars: { 
+            autoplay: 0, 
+            disablekb: 0,
+            controls: 1,
+            showinfo: 0,        // Hide the video title
+            modestbranding: 1,  // Hide the Youtube Logo
+            start: "{{wf {&quot;path&quot;:&quot;active-piece:start-time&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}",
+        },
+        events: {
+        'onReady': onPlayerReady
+        }
+    });
+
+}
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+$(function() {
+    $('.piecenamecontainer').on('click', function() {
+    let demo = $(this).find('.piecedemo').text();
+    let start = $(this).find('.start').text();
+    player.cueVideoById(demo, start);
+
+    if (demo === "" ){
+        $('.demo-add').show();
+    } else{
+        $('.demo-add').hide();
+    };
+    
+    });
+    
+    });
+
+</script> 
 
 
