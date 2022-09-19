@@ -393,6 +393,7 @@ $('.x.reset').on('click', function() {
     $('.space-icon.space').on('mouseenter', function() {
         $(this).addClass('hover');
         $(this).siblings('.modal-bg-blur').show().addClass('hover-dark');
+        $('.space-div').css('opacity', '0%');
         $(this).find('.space-div').css('opacity', '100%');
     });
 
