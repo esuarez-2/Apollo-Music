@@ -17,7 +17,7 @@ $('.piecenamecontainer').on('click', function() {
     if (demo === "") {
     $('.youtube-iframe').hide()};
     if (tempo === "") {
-    $('.set-value-modal').show().css('display', 'flex');};
+    $('.set-value-modal.tempo').show().css('display', 'flex');};
 
 // combining URL's to add into SRC's
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
