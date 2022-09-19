@@ -5,6 +5,7 @@ $('.piece-container').on('click', function() {
     $('.tool,.youtube-iframe').show();
     let tempo = $(this).find('.tempo').text();
     let demo = $(this).find('.demo').text();
+    let time = $(this).find('.start').text();
 
     if (demo === "") {
     $('.youtube-iframe').hide()};
@@ -16,8 +17,7 @@ $('.piece-container').on('click', function() {
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
     let ytURL = "https://www.youtube.com/embed/";
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
-    let newYTSrc = ytURL.concat(demo,"t=17");
-    console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
+    let newYTSrc = ytURL.concat(demo,"?start=",time);
 
     $('#youtube').attr('src', newYTSrc);
     $('#metronome').attr('src', newMetronomeSrc);
@@ -25,6 +25,8 @@ $('.piece-container').on('click', function() {
     $('#metronome')[0].contentWindow.location.reload(true);
 
     });
+
+// exiting the youtube / tempo modal
 
 $('.exit-modal').on('click', function(){
     $(this).closest('.modal-container').hide();
