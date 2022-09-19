@@ -46,6 +46,7 @@ full.addEventListener("click", ()=>{
     $('.horizontal-simple.abs-right').removeClass('active');
     $(this).siblings('.horizontal-simple.abs-right').addClass('active');
     $('.things-content').toggleClass('active');
+    $('.set-value-modal').hide();
     
     let name = $(this).find('.piecename').text();
     let pieceid = $(this).find('.pieceid').text();
@@ -104,6 +105,7 @@ $('.piecenamecontainer').on('click', function() {
 
 $('.tool-icon').on('click', function() {
     $('.set-value-modal').hide();
+
     var color = $( this ).css( "background-color" );
     $('.tool-icon').css('background-color', '#2f3136');
     $('.tools,.tool,.black-bottom').hide();
@@ -167,7 +169,7 @@ $('.x.reset').on('click', function() {
 
     $('.filter-trigger').on('click', function() {
     var color = $( this ).css( "background-color" );
-		console.log(color);
+    
 
     if  ( $( this ).hasClass( "class" ) ) {
         $('.filter-class').hide();
@@ -213,17 +215,15 @@ $('.x.reset').on('click', function() {
 /* BUGS
 
 1. pdf focusing on-render
-2. youtube autoplaying
-3. Turn on/off triggers based on width ()
-4. combine doesnt allow for empty state
-5. down-arrow, focus next
+2. Turn on/off triggers based on width ()
+3. down-arrow, focus next
 6. enter, click focused item
 7. code logic - passing text value into parent name
 
-    /*    if (event.keyCode === 40) {
-            $('.piecenamecontainer.search').focus();
-            console.log('piecefocused')
- */
+/*    if (event.keyCode === 40) {
+        $('.piecenamecontainer.search').focus();
+        console.log('piecefocused')
+*/
 
 
 // converting tiggers into JS & Jquery
@@ -444,6 +444,7 @@ $('.piecenamecontainer').on('click', function() {
     if (demo === "") {
     $('.set-value-modal.yt').show().css('display', 'flex')};
     if (tempo === "") {
+    $('.tool').hide();    
     $('.set-value-modal.tempo').show().css('display', 'flex')};
 
 // combining URL's to add into SRC's
@@ -459,4 +460,4 @@ $('.piecenamecontainer').on('click', function() {
     $('#youtube')[0].contentWindow.location.reload(true);
     $('#metronome')[0].contentWindow.location.reload(true);
 
-    });
+});
