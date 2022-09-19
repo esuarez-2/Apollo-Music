@@ -53,14 +53,17 @@ full.addEventListener("click", ()=>{
     document.getElementById("id-1").value = pieceid;
     document.getElementById("id-2").value = pieceid;
     document.getElementById("id-3").value = pieceid;
+    document.getElementById("id-4").value = pieceid;
     
     document.getElementById("name-1").value = name; 
     document.getElementById("name-2").value = name;
     document.getElementById("name-3").value = name;
     document.getElementById("name-4").value = name;
+    document.getElementById("name-5").value = name;
     
     document.getElementById("name-text-1").textContent = name;
     document.getElementById("name-text-3").textContent = name;
+    document.getElementById("name-text-4").textContent = name;
 
 });
 
@@ -416,6 +419,12 @@ $('.x.reset').on('click', function() {
         $(this).removeClass('hover');
       });
 
+// exiting the youtube / tempo modal
+
+$('.exit-modal').on('click', function(){
+    $(this).closest('.modal-container').hide();
+});
+
 // replacing SCR's • YT & Metronome
 
 $('.piecenamecontainer').on('click', function() {
@@ -433,9 +442,9 @@ $('.piecenamecontainer').on('click', function() {
     
 // null states for SRC's
     if (demo === "") {
-    $('.set-value-modal.yt').show().css('display', 'flex');};
+    $('.set-value-modal.yt').show().css('display', 'flex')};
     if (tempo === "") {
-    $('.set-value-modal.tempo').show().css('display', 'flex');};
+    $('.set-value-modal.tempo').show().css('display', 'flex')};
 
 // combining URL's to add into SRC's
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
@@ -451,9 +460,3 @@ $('.piecenamecontainer').on('click', function() {
     $('#metronome')[0].contentWindow.location.reload(true);
 
     });
-
-// exiting the youtube / tempo modal
-
-$('.exit-modal').on('click', function(){
-    $(this).closest('.modal-container').hide();
-});
