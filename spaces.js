@@ -276,7 +276,7 @@ $('.x.reset').on('click', function() {
 
     $('.channel-mini-icon.embed.piece').on('click', function() {
         $('.forms-container.edit').show().css('display', 'flex');
-        $('.a-form-container.edit-profile').show();
+        $('.a-form-container.edit-piece').show();
     });
 
 // playlists
@@ -390,14 +390,13 @@ $('.x.reset').on('click', function() {
         $(this).removeClass('hover');
     });
 
-    $('.space-icon.space').on('mouseenter', function() {
+    $('.space-icon.space,.space-icon.new-area').on('mouseenter', function() {
         $(this).addClass('hover');
         $(this).siblings('.modal-bg-blur').show().addClass('hover-dark');
-        $('.space-div').css('opacity', '0%');
         $(this).find('.space-div').css('opacity', '100%');
     });
 
-    $('.space-icon.space').on('mouseleave', function() {
+    $('.space-icon.space,.space-icon.new-area').on('mouseleave', function() {
         $(this).removeClass('hover');
         $(this).siblings('.modal-bg-blur').removeClass('hover-dark');
         $(this).siblings('.modal-bg-blur').hide();
