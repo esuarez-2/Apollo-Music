@@ -1,4 +1,4 @@
-// Null States
+// On-Load States
 
 $('.modal-bg-blur').hide();
 
@@ -118,20 +118,17 @@ $('.tool-icon').on('click', function() {
         $('.tools.yt').show();
         $('#editdemo').show();
     } else if ( $( this ).hasClass( "mt" ) ) {
-        $('#tools').show();
+        $('#tools.mt').show();
         $('#metronome').show();
         $('#editdemo').hide();
-        $('#blackBottom').show();
     } else if ( $( this ).hasClass( "tn" ) ) {
         $('#tools').show();
         $('#tuner').show();
         $('#editdemo').hide();
-        $('#blackBottom').show();
     } else if ( $( this ).hasClass( "tm" ) ) {
         $('#tools').show();
         $('#pomo').show();
         $('#editdemo').hide();
-        $('#blackBottom').hide();
     } else if ( $( this ).hasClass( "edit" ) ) {
         $('#editdemo').show();
         $('#editdemo').css('background-color', '#2f3136');
