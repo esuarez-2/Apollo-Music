@@ -117,7 +117,7 @@ $('.tool-icon').on('click', function() {
         $('#editdemo').show();
     } else if ( $( this ).hasClass( "mt" ) ) {
         $('.tools.mt').show();
-        $('#metronome').show();
+        $('.tool.mt').show();
         $('#editdemo').hide();
     } else if ( $( this ).hasClass( "tn" ) ) {
         $('#tools').show();
@@ -422,7 +422,7 @@ $('.exit-modal').on('click', function(){
 
 // replacing SCR's • YT & Metronome
 
-$('.piecenamecontainer').on('click', function() {
+$('.piecename').on('click', function() {
 
 // getting values from 'click' of piecename
 
@@ -431,7 +431,6 @@ $('.piecenamecontainer').on('click', function() {
     let demo = $(this).find('.piecedemo').text();
     let time = $(this).find('.start').text();
     let timeSignature = $(this).find('.pattern').text();
-    console.log(tempo);
     
 // null states for SRC's
 
@@ -454,7 +453,7 @@ if (tempo === "") {
     let ytURL = "https://www.youtube.com/embed/";
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
     let newYTSrc = ytURL.concat(demo,"?start=",time);
-    // console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
+    console.log(tempo, timeSignature, demo, newMetronomeSrc,newYTSrc);
 
 // transpanting src's and reloading iframes
     $('#youtube').attr('src', newYTSrc);
