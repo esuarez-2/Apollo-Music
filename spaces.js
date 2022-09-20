@@ -1,4 +1,6 @@
+// Null States
 
+$('.modal-bg-blur').hide();
 
 
 // Entering & Exiting Full Screen
@@ -177,13 +179,11 @@ $('.x.reset').on('click', function() {
         $(this).siblings('.filter-trigger').show();
     } else if ( $( this ).hasClass( "family" ) ) {
         let familyName = $(this).text();
-        console.log(familyName);
         $(this).siblings('.filter-trigger.class').css('background-color', 'rgb(0, 145, 255)');
         $(this).closest('.filter-class').find('.class-name').textContent = familyName;
         $('.filter-trigger.family').hide();
         $('.filter-class').show();
     } else if (color == "rgb(0, 145, 255)") {
-        console.log('color is blue');
         $(this).css('background-color', 'rgb(78, 78, 78)');
         $('.filter-trigger.family').hide();
         $('.filter-class').show();
@@ -429,23 +429,27 @@ $('.exit-modal').on('click', function(){
 
 $('.piecenamecontainer').on('click', function() {
 
-    console.log("space edit working");
-
 // getting values from 'click' of piecename
-    $('.tool,.youtube-iframe').show();
+
     $('.set-value-modal').hide();
-    
     let tempo = $(this).find('.tempo').text();
     let demo = $(this).find('.piecedemo').text();
     let time = $(this).find('.start').text();
     let timeSignature = $(this).find('.pattern').text();
     
 // null states for SRC's
-    if (demo === "") {
-    $('.set-value-modal.yt').show().css('display', 'flex')};
-    if (tempo === "") {
+if (demo === "") {
+    $('.set-value-modal.yt').show().css('display', 'flex');
+} else {
+    $('.set-value-modal.yt').hide();
+    };
+
+if (tempo === "") {
     $('.tool').hide();    
-    $('.set-value-modal.tempo').show().css('display', 'flex')};
+    $('.set-value-modal.tempo').show().css('display', 'flex')
+} else {
+    $('.set-value-modal.tempo').hide();
+    };
 
 // combining URL's to add into SRC's
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
@@ -457,7 +461,7 @@ $('.piecenamecontainer').on('click', function() {
 // transpanting src's and reloading iframes
     $('#youtube').attr('src', newYTSrc);
     $('#metronome').attr('src', newMetronomeSrc);
-    $('#youtube')[0].contentWindow.location.reload(true);
     $('#metronome')[0].contentWindow.location.reload(true);
+    $('#youtube')[0].contentWindow.location.reload(true);
 
 });
