@@ -430,7 +430,15 @@ $('.piecenamecontainer').on('click', function() {
     let demo = $(this).find('.piecedemo').text();
     let time = $(this).find('.start').text();
     let timeSignature = $(this).find('.pattern').text();
+
     
+// combining URL's to add into SRC's
+    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
+    let ytURL = "https://www.youtube.com/embed/";
+    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
+    let newYTSrc = ytURL.concat(demo,"?start=",time);
+    console.log(tempo, timeSignature, demo, newMetronomeSrc,newYTSrc);
+
 // null states for SRC's
 
     
@@ -441,18 +449,8 @@ if (demo === "") {
     };
 
 if (tempo === "") {   
-    $('.set-value-modal.tempo').show().css('display', 'flex');
-} else {
-    $('.set-value-modal.tempo').hide();
-    };
-
-    
-// combining URL's to add into SRC's
-    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
-    let ytURL = "https://www.youtube.com/embed/";
-    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
-    let newYTSrc = ytURL.concat(demo,"?start=",time);
-    console.log(tempo, timeSignature, demo, newMetronomeSrc,newYTSrc);
+    newMetronomeSrc = "https://guitarapp.com/metronome-embed.html?tempo=90timeSignature=2"
+};
 
 // transpanting src's and reloading iframes
     $('#youtube').attr('src', newYTSrc);
@@ -461,4 +459,3 @@ if (tempo === "") {
     $('#youtube')[0].contentWindow.location.reload(true);
 
 });
-
