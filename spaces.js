@@ -422,7 +422,7 @@ $('.exit-modal').on('click', function(){
 
 // replacing SCR's • YT & Metronome
 
-$('.piecename').on('click', function() {
+$('.piecenamecontainer').on('click', function() {
 
 // getting values from 'click' of piecename
 
@@ -460,7 +460,6 @@ if (tempo === "") {
     $('#metronome').attr('src', newMetronomeSrc);
     $('#metronome')[0].contentWindow.location.reload(true);
     $('#youtube')[0].contentWindow.location.reload(true);
-
 
 });
 
