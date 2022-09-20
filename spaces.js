@@ -449,7 +449,7 @@ if (demo === "") {
     };
 
 if (tempo === "") {   
-    newMetronomeSrc = "https://guitarapp.com/metronome-embed.html?tempo=90timeSignature=2"
+    newMetronomeSrc = "https://guitarapp.com/metronome-embed.html?tempo=90&timeSignature=2"
 };
 
 // transpanting src's and reloading iframes
@@ -458,4 +458,18 @@ if (tempo === "") {
     $('#metronome')[0].contentWindow.location.reload(true);
     $('#youtube')[0].contentWindow.location.reload(true);
 
+});
+
+
+
+$(document).ready(function() {
+
+    if ("{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"=== "") {
+        $('.tools.yt').hide();
+    };
+
+    if ("{{wf {&quot;path&quot;:&quot;active-piece:tempo&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"=== "") {
+        $('#metronome').attr('src', "https://guitarapp.com/metronome-embed.html?tempo=90&timeSignature=2");
+        $('#metronome')[0].contentWindow.location.reload(true)
+    };
 });
