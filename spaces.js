@@ -127,9 +127,8 @@ $('.tool-icon').on('click', function() {
         $('#tools').show();
         $('#pomo').show();
         $('.tool-icon.edit').hide();
-    // } else if ( $( this ).hasClass( "edit" ) ) {
-    //     $('.tool-icon.edit.yt').show();
-    //     $('#editdemo').css('background-color', '#2f3136');
+    } else if ( $( this ).hasClass( "edit" ) ) {
+        $(this).css('background-color', '#2f3136');
     } else {
         $('.tools,.tool,.black-bottom,.tool-icon.edit,.tool-icon.close').hide();
     };
