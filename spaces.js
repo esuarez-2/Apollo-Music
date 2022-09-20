@@ -108,7 +108,7 @@ $('.tool-icon').on('click', function() {
 
     var color = $( this ).css( "background-color" );
     $('.tool-icon').css('background-color', '#2f3136');
-    $('.tools,.tool,.black-bottom').hide();
+    $('.tools,.tool,.black-bottom,.tool-icon.edit').hide();
     $(this).css('background-color', '#0091ff');
     $('.tool-icon.close').show();
     
