@@ -2,7 +2,6 @@
 
 $('.modal-bg-blur').hide();
 
-
 // Entering & Exiting Full Screen
 
 let myDocument = document.documentElement;
@@ -106,7 +105,6 @@ $('.piecenamecontainer').on('click', function() {
 // if, else statment. Widgets  
 
 $('.tool-icon').on('click', function() {
-    $('.set-value-modal').hide();
 
     var color = $( this ).css( "background-color" );
     $('.tool-icon').css('background-color', '#2f3136');
@@ -118,7 +116,7 @@ $('.tool-icon').on('click', function() {
         $('.tools.yt').show();
         $('#editdemo').show();
     } else if ( $( this ).hasClass( "mt" ) ) {
-        $('#tools.mt').show();
+        $('.tools.mt').show();
         $('#metronome').show();
         $('#editdemo').hide();
     } else if ( $( this ).hasClass( "tn" ) ) {
@@ -433,27 +431,30 @@ $('.piecenamecontainer').on('click', function() {
     let demo = $(this).find('.piecedemo').text();
     let time = $(this).find('.start').text();
     let timeSignature = $(this).find('.pattern').text();
+    console.log(tempo);
     
 // null states for SRC's
+
+    
 if (demo === "") {
     $('.set-value-modal.yt').show().css('display', 'flex');
 } else {
     $('.set-value-modal.yt').hide();
     };
 
-if (tempo === "") {
-    $('.tool').hide();    
-    $('.set-value-modal.tempo').show().css('display', 'flex')
+if (tempo === "") {   
+    $('.set-value-modal.tempo').show().css('display', 'flex');
 } else {
     $('.set-value-modal.tempo').hide();
     };
 
+    
 // combining URL's to add into SRC's
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
     let ytURL = "https://www.youtube.com/embed/";
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
     let newYTSrc = ytURL.concat(demo,"?start=",time);
-    console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
+    // console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
 
 // transpanting src's and reloading iframes
     $('#youtube').attr('src', newYTSrc);
@@ -461,4 +462,6 @@ if (tempo === "") {
     $('#metronome')[0].contentWindow.location.reload(true);
     $('#youtube')[0].contentWindow.location.reload(true);
 
+
 });
+
