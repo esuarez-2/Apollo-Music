@@ -1,42 +1,14 @@
-// passing new SRC value
-
-$('.piece-container').on('click', function() {
-
-    $('.tool,.youtube-iframe').show();
-    let tempo = $(this).find('.tempo').text();
-    let demo = $(this).find('.demo').text();
-    let time = $(this).find('.start').text();
-
-    if (demo === "") {
-    $('.youtube-iframe').hide()};
-
-    if (tempo === "") {
-    $('.tool').hide()};
-
-    let timeSignature = $(this).find('.time-signature').text();
-    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
-    let ytURL = "https://www.youtube.com/embed/";
-    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
-    let newYTSrc = ytURL.concat(demo,"?start=",time);
-
-    $('#youtube').attr('src', newYTSrc);
-    $('#metronome').attr('src', newMetronomeSrc);
-    $('#youtube')[0].contentWindow.location.reload(true);
-    $('#metronome')[0].contentWindow.location.reload(true);
-
-    });
-
 // exiting the youtube / tempo modal
 
 $('.exit-modal').on('click', function(){
     $(this).closest('.modal-container').hide();
 });
 
-// define a handler
-document.onkeydown = function () {
-    $('.piece-search-form').show();
-    $('.space-search').focus();
-}
+// // define a handler
+// document.onkeydown = function () {
+//     $('.piece-search-form').show();
+//     $('.space-search').focus();
+// }
 
 // if, else statment. Filter  
 
@@ -122,3 +94,31 @@ renderPdf($(this).find('.piecename').text(), $(this).find('.pdf').text(), $(this
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
 renderPdf("skyfall", "https://uploads-ssl.webflow.com/5fcc62d86ada3843c072ce92/62f459c10a419281d514338b_Adele_-_Skyfall.pdf", "62ea981978ff0023a7519ada")
 });
+
+// passing new SRC value
+
+$('.piece-container').on('click', function() {
+
+    $('.tool,.youtube-iframe').show();
+    let tempo = $(this).find('.tempo').text();
+    let demo = $(this).find('.demo').text();
+    let time = $(this).find('.start').text();
+
+    if (demo === "") {
+    $('.youtube-iframe').hide()};
+
+    if (tempo === "") {
+    $('.tool').hide()};
+
+    let timeSignature = $(this).find('.time-signature').text();
+    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
+    let ytURL = "https://www.youtube.com/embed/";
+    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
+    let newYTSrc = ytURL.concat(demo,"?start=",time);
+
+    $('#youtube').attr('src', newYTSrc);
+    $('#metronome').attr('src', newMetronomeSrc);
+    $('#youtube')[0].contentWindow.location.reload(true);
+    $('#metronome')[0].contentWindow.location.reload(true);
+
+    });
