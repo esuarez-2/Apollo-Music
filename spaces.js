@@ -41,6 +41,35 @@ full.addEventListener("click", ()=>{
     }
 });
 
+// Keyboard Shortcuts
+
+$(document).keydown(function(e) { // e + ctrl
+    if (e.ctrlKey && e.which === 69){
+        alert('JS');
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        e.preventDefault();
+    }
+});
+
+$(document).keydown(function(e) { // ctrl + space
+    if (e.ctrlKey && e.which === 32){
+        alert('JS');
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        e.preventDefault();
+    }
+});
+
+$(document).keydown(function(e) { // alt + space
+    if (e.altKey && e.which === 32){
+        alert('JS, alt');
+        $('.piece-search-form').show();
+        $('.space-search').focus();
+        e.preventDefault();
+    }
+});
+
 // Clicking on Piece   
 
     $('.piecenamecontainer').on('click', function () {
@@ -458,18 +487,4 @@ if (tempo === "") {
     $('#metronome')[0].contentWindow.location.reload(true);
     $('#youtube')[0].contentWindow.location.reload(true);
 
-});
-
-
-
-$(document).ready(function() {
-
-    if ("{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"=== "") {
-        $('.tools.yt').hide();
-    };
-
-    if ("{{wf {&quot;path&quot;:&quot;active-piece:tempo&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}"=== "") {
-        $('#metronome').attr('src', "https://guitarapp.com/metronome-embed.html?tempo=90&timeSignature=2");
-        $('#metronome')[0].contentWindow.location.reload(true)
-    };
 });

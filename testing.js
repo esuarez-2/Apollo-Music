@@ -4,11 +4,11 @@ $('.exit-modal').on('click', function(){
     $(this).closest('.modal-container').hide();
 });
 
-// // define a handler
-// document.onkeydown = function () {
-//     $('.piece-search-form').show();
-//     $('.space-search').focus();
-// }
+// define a handler
+document.onkeydown = function () {
+    $('.piece-search-form').show();
+    $('.space-search').focus();
+}
 
 // if, else statment. Filter  
 
@@ -122,3 +122,4 @@ $('.piece-container').on('click', function() {
     $('#metronome')[0].contentWindow.location.reload(true);
 
     });
+
