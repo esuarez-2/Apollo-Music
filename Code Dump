@@ -79,3 +79,28 @@ $(function() {
     });
 
 </script>
+
+
+<script type="text/javascript">
+
+function renderPdf(fileName, url) {
+    var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
+    adobeDCView.previewFile({ 
+            content: { location: { url }}, 
+            metaData: { fileName }
+        }, {
+                embedMode:"FULL_WINDOW",  
+            focusOnRendering: false,
+            defaultViewMode: "FIT_WIDTH",
+            enableSearchAPIs: false,
+            showZoomControl: false,
+        });
+    
+    $('.space-search').focus();
+    console.log('focuesed')
+    $('.space-search').click();
+    console.log('spacefocus');
+
+}
+
+</script>

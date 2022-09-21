@@ -140,15 +140,15 @@ $('.tool-icon').on('click', function() {
     
     if ( $( this ).hasClass( "yt" ) ) {
         $('.tools.yt').show();
-        $('.tool-icon.edit.yt').show();
+        $('.tool-icon.edit.yt').show().css('display', 'flex');
     } else if ( $( this ).hasClass( "mt" ) ) {
         $('.tools.mt').show();
         $('.tool.mt').show();
-        $('.tool-icon.edit.mt').show();
+        $('.tool-icon.edit.mt').show().css('display', 'flex');
     } else if ( $( this ).hasClass( "tn" ) ) {
         $('#tools').show();
         $('#tuner').show();
-        $('.tool-icon.edit').hide();
+        $('.tool-icon.edit').hide().css('display', 'flex');
     } else if ( $( this ).hasClass( "tm" ) ) {
         $('#tools').show();
         $('#pomo').show();
@@ -463,7 +463,6 @@ $('.piecenamecontainer').on('click', function() {
     let ytURL = "https://www.youtube.com/embed/";
     let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
     let newYTSrc = ytURL.concat(demo,"?start=",time);
-    console.log(tempo, timeSignature, demo, newMetronomeSrc,newYTSrc);
 
 // null states for SRC's
 
