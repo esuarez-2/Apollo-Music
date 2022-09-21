@@ -45,7 +45,6 @@ full.addEventListener("click", ()=>{
 
 $(document).keydown(function(e) { // e + ctrl
     if (e.ctrlKey && e.which === 69){
-        alert('JS');
         $('.piece-search-form').show();
         $('.space-search').focus();
         e.preventDefault();
@@ -54,7 +53,6 @@ $(document).keydown(function(e) { // e + ctrl
 
 $(document).keydown(function(e) { // ctrl + space
     if (e.ctrlKey && e.which === 32){
-        alert('JS');
         $('.piece-search-form').show();
         $('.space-search').focus();
         e.preventDefault();
@@ -63,7 +61,6 @@ $(document).keydown(function(e) { // ctrl + space
 
 $(document).keydown(function(e) { // alt + space
     if (e.altKey && e.which === 32){
-        alert('JS, alt');
         $('.piece-search-form').show();
         $('.space-search').focus();
         e.preventDefault();
