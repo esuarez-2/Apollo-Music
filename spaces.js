@@ -1,6 +1,7 @@
 // On-Load States
 
 $('.modal-bg-blur').hide();
+$('.a-form-container').hide();
 
 // Entering & Exiting Full Screen
 
@@ -250,32 +251,6 @@ $('.x.reset').on('click', function() {
 
 // space-icon hover in/out
 
- 
-
-// bulk add
-
-    $('#bulk-add-p1,.apollo-button.bulk.1').on('click', function() {
-        $('.forms-container.add').show().css('display', 'flex');
-        $('.a-form-container.bulk-add-1').show();
-    });
-
-    $('#bulk-add-p2,.apollo-button.bulk.2').on('click', function() {
-        $('.forms-container.add').show().css('display', 'flex');
-        $('.a-form-container.bulk-add-2').show();
-    });
-
-    $('#bulk-add-p3,.apollo-button.bulk.3').on('click', function() {
-        $('.forms-container.add').show().css('display', 'flex');
-        $('.a-form-container.bulk-add-3').show();
-    });
-
-    $('#bulk-add-p4,.apollo-button.bulk.4').on('click', function() {
-        $('.forms-container.add').show().css('display', 'flex');
-        $('.a-form-container.bulk-add-4').show();
-    });
-
-// 
-
 // editing  
 
     $('.channel-mini-icon.embed.playlist,.area-button.playlist').on('click', function() {
@@ -328,26 +303,48 @@ $('.x.reset').on('click', function() {
     $('#add-playlist-4').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.new-playlist-4').show();
-    });  
+    }); 
+    
+// bulk add
+
+$('#bulk-add-p1,#bulk-p1').on('click', function() {
+    $('.forms-container.add').show().css('display', 'flex');
+    $('.a-form-container.bulk-add-1').show();
+});
+
+$('#bulk-add-p2,#bulk-p2').on('click', function() {
+    $('.forms-container.add').show().css('display', 'flex');
+    $('.a-form-container.bulk-add-2').show();
+});
+
+$('#bulk-add-p3,#bulk-p3').on('click', function() {
+    $('.forms-container.add').show().css('display', 'flex');
+    $('.a-form-container.bulk-add-3').show();
+});
+
+$('#bulk-add-p4,#bulk-p4').on('click', function() {
+    $('.forms-container.add').show().css('display', 'flex');
+    $('.a-form-container.bulk-add-4').show();
+});
 
 // singe add
 
-    $('#add-p1,.apollo-button.bulk.single.1').on('click', function() {
+    $('#add-p1,#single-p1').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-1').show();
     });
 
-    $('#add-p2,.apollo-button.bulk.single.2').on('click', function() {
+    $('#add-p2,#single-p2').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-2').show();
     });
 
-    $('#add-p3,.apollo-button.bulk.single.3').on('click', function() {
+    $('#add-p3,#single-p3').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-3').show();
     });
 
-    $('#add-p4,.apollo-button.bulk.single.4').on('click', function() {
+    $('#add-p4,#single-p4').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-4').show();
     });
