@@ -307,25 +307,25 @@ $('.x.reset').on('click', function() {
     
 // bulk add
 
-$('#bulk-add-p1,#bulk-p1').on('click', function() {
+$('#bulk-p1').on('click', function() {
     $('.forms-container.add').show().css('display', 'flex');
     $('.a-form-container.bulk-add-1').show();
     $('.a-form-container.playlist-1').hide();
 });
 
-$('#bulk-add-p2,#bulk-p2').on('click', function() {
+$('#bulk-p2').on('click', function() {
     $('.forms-container.add').show().css('display', 'flex');
     $('.a-form-container.bulk-add-2').show();
     $('.a-form-container.playlist-2').hide();
 });
 
-$('#bulk-add-p3,#bulk-p3').on('click', function() {
+$('#bulk-p3').on('click', function() {
     $('.forms-container.add').show().css('display', 'flex');
     $('.a-form-container.bulk-add-3').show();
     $('.a-form-container.playlist-3').hide();
 });
 
-$('#bulk-add-p4,#bulk-p4').on('click', function() {
+$('#bulk-p4').on('click', function() {
     $('.forms-container.add').show().css('display', 'flex');
     $('.a-form-container.bulk-add-4').show();
     $('.a-form-container.playlist-4').hide();
@@ -333,25 +333,25 @@ $('#bulk-add-p4,#bulk-p4').on('click', function() {
 
 // singe add
 
-    $('#add-p1,#single-p1').on('click', function() {
+    $('#bulk-add-p1,#add-p1,#single-p1').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-1').show();
         $('.a-form-container.bulk-add-1').hide();
     });
 
-    $('#add-p2,#single-p2').on('click', function() {
+    $('#bulk-add-p2,#add-p2,#single-p2').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-2').show();
         $('.a-form-container.bulk-add-2').hide();
     });
 
-    $('#add-p3,#single-p3').on('click', function() {
+    $('#bulk-add-p3,#add-p3,#single-p3').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-3').show();
         $('.a-form-container.bulk-add-3').hide();
     });
 
-    $('#add-p4,#single-p4').on('click', function() {
+    $('#bulk-add-p4,#add-p4,#single-p4').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.playlist-4').show();
         $('.a-form-container.bulk-add-4').hide();
