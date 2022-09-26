@@ -151,7 +151,7 @@ $('.tool-icon').on('click', function() {
         $('#tools').show().css('display', 'flex');
         $('#tuner').show();
         $('.button.guitar-link').show();
-        $('.tool-icon.edit').hide().css('display', 'flex');
+        $('.tool-icon.edit').hide();
     } else if ( $( this ).hasClass( "tm" ) ) {
         $('#tools').show();
         $('#pomo').show();
