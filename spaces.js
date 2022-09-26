@@ -145,15 +145,17 @@ $('.tool-icon').on('click', function() {
     } else if ( $( this ).hasClass( "mt" ) ) {
         $('.tools.mt').show();
         $('.tool.mt').show();
+        $('.button.guitar-link').show();
         $('.tool-icon.edit.mt').show().css('display', 'flex');
     } else if ( $( this ).hasClass( "tn" ) ) {
         $('#tools').show();
         $('#tuner').show();
+        $('.button.guitar-link').show();
         $('.tool-icon.edit').hide().css('display', 'flex');
     } else if ( $( this ).hasClass( "tm" ) ) {
         $('#tools').show();
         $('#pomo').show();
-        $('.tool-icon.edit').hide();
+        $('.tool-icon.edit.button.guitar-link').hide();
     } else if ( $( this ).hasClass( "edit" ) ) {
         $(this).css('background-color', 'rgb(78, 78, 78)');
     } else {
@@ -372,7 +374,7 @@ $('#bulk-p4').on('click', function() {
         $('.a-form-container.login').show();
     });
 
-    $('.profile-button.signup').on('click', function() {
+    $('.profile-button.signup.edit').on('click', function() {
         $('.forms-container.add').show().css('display', 'flex');
         $('.a-form-container.login').show();
     });
