@@ -157,7 +157,8 @@ $('.tool-icon').on('click', function() {
         $('#pomo').show();
         $('.tool-icon.edit.button.guitar-link').hide();
     } else if ( $( this ).hasClass( "edit" ) ) {
-        $(this).css('background-color', 'rgb(78, 78, 78)');
+        $(this).show();
+        $(this).css('background-color', '#2f3136');
     } else {
         $('.tools,.tool,.black-bottom,.tool-icon.edit,.tool-icon.close').hide();
     };
@@ -470,7 +471,7 @@ $('.piecenamecontainer').on('click', function() {
 // combining URL's to add into SRC's
     let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=";
     let ytURL = "https://www.youtube.com/embed/";
-    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
+    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature,"&logo=none");
     let newYTSrc = ytURL.concat(demo,"?start=",time);
 
 // null states for SRC's
@@ -483,7 +484,7 @@ if (demo === "") {
     };
 
 if (tempo === "") {   
-    newMetronomeSrc = "https://guitarapp.com/metronome-embed.html?tempo=90&timeSignature=2"
+    newMetronomeSrc = "https://guitarapp.com/metronome-embed.html?tempo=90&timeSignature=2&logo=none"
 };
 
 // transpanting src's and reloading iframes
