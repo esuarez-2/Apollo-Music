@@ -143,12 +143,12 @@ $('.tool-icon').on('click', function() {
         $('.tools.yt').show();
         $('.tool-icon.edit.yt').show().css('display', 'flex');
     } else if ( $( this ).hasClass( "mt" ) ) {
-        $('.tools.mt').show();
+        $('.tools.mt').show().css('display', 'flex');
         $('.tool.mt').show();
         $('.button.guitar-link').show();
         $('.tool-icon.edit.mt').show().css('display', 'flex');
     } else if ( $( this ).hasClass( "tn" ) ) {
-        $('#tools').show();
+        $('#tools').show().css('display', 'flex');
         $('#tuner').show();
         $('.button.guitar-link').show();
         $('.tool-icon.edit').hide().css('display', 'flex');
