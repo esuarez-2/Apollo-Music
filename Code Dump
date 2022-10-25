@@ -1,106 +1,46 @@
 
-
-<!-- new tempo on Click -->
+<!-- Clicking on the RIGHT Arrow -->
 
 <script>
 
-    $('.piece-container').on('click', function() {
+    $('#rightarrow').on('click', function() {
+    let theClass = $('#featured-list').attr('class');
+    $('.little-bubble').removeClass('active');
+    console.log(theClass);
 
-    let tempo = $(this).find('.tempo').text();
-    let demo = $(this).find('.demo').text();
-    let timeSignature = $(this).find('.time-signature').text();
-    let metronomeURL = "https://guitarapp.com/metronome-embed.html?tempo=?";
-    let ytURL = "https://www.youtube.com/embed/"
-    let newMetronomeSrc = metronomeURL.concat(tempo,"&timeSignature=",timeSignature);
-    let newYTSrc = ytURL.concat(demo,"?t=17");
-    console.log("tempo",tempo,"demo",demo,"new timeSig",timeSignature,"new Tempo src",newMetronomeSrc,newYTSrc);
-
-    $('#youtube').attr('src', newYTSrc);
-    $('#metronome').attr('src', newMetronomeSrc);
-    $('#youtube')[0].contentWindow.location.reload(true);
-    $('#metronome')[0].contentWindow.location.reload(true);
-
-</script>
-
-<iframe
-src="https://guitarapp.com/metronome-embed.html?tempo=65&timeSignature=2&pattern=1"
-title="Online Metronome" 
-style="width: 360px; height:520px; border-style: none; border-radius: 4px;"> 
-</iframe>
-
-
-<!-- adding in YT through Click --> 
-
-<script> 
-
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '100%',
-        width: '100%',
-        videoId: '{{wf {&quot;path&quot;:&quot;active-piece:demo-link&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}',
-        startSeconds: '5',
-        playerVars: { 
-            autoplay: 0, 
-            disablekb: 0,
-            controls: 1,
-            showinfo: 0,        // Hide the video title
-            modestbranding: 1,  // Hide the Youtube Logo
-            start: "{{wf {&quot;path&quot;:&quot;active-piece:start-time&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}",
-        },
-        events: {
-        'onReady': onPlayerReady
-        }
-    });
-
-}
-function onPlayerReady(event) {
-    event.target.playVideo();
-}
-
-$(function() {
-    $('.piecenamecontainer').on('click', function() {
-    let demo = $(this).find('.piecedemo').text();
-    let start = $(this).find('.start').text();
-    player.cueVideoById(demo, start);
-
-    if (demo === "" ){
-        $('.demo-add').show();
-    } else{
-        $('.demo-add').hide();
+    if  ( theClass === "featured-collection-list w-dyn-items" ) {
+        $('.featured-collection-list').addClass('scroll-1');
+        $('#bubble-2').addClass('active');
+    } else if  ( theClass === "featured-collection-list w-dyn-items scroll-1" ) {
+        $('.featured-collection-list').addClass('scroll-2');
+        $('#bubble-3').addClass('active');
+    } else {
+        $('#bubble-3').addClass('active');
     };
-    
-    });
-    
-    });
 
-</script>
+});
 
+</script> 
 
-<script type="text/javascript">
+<!-- Clicking on the LEFT Arrow -->
 
-function renderPdf(fileName, url) {
-    var adobeDCView = new AdobeDC.View({ clientId: "609ad58c69c240c4aa3062540404852e", divId: "adobe-dc-view" });
-    adobeDCView.previewFile({ 
-            content: { location: { url }}, 
-            metaData: { fileName }
-        }, {
-                embedMode:"FULL_WINDOW",  
-            focusOnRendering: false,
-            defaultViewMode: "FIT_WIDTH",
-            enableSearchAPIs: false,
-            showZoomControl: false,
-        });
-    
-    $('.space-search').focus();
-    console.log('focuesed')
-    $('.space-search').click();
-    console.log('spacefocus');
+<script>
 
-}
+    $('#leftarrow').on('click', function() {
+    let theClass = $('#featured-list').attr('class');
+    $('.little-bubble').removeClass('active');
+    console.log(theClass);
 
-</script>
+    if  ( theClass === "featured-collection-list w-dyn-items scroll-1 scroll-2" ) {
+        $('.featured-collection-list').removeClass('scroll-2');
+        $('#bubble-2').addClass('active');
+    } else if  ( theClass === "featured-collection-list w-dyn-items scroll-1" ) {
+        $('.featured-collection-list').removeClass('scroll-1');
+        $('#bubble-1').addClass('active');
+    } else {
+        $('#bubble-1').addClass('active');
+    };
+
+});
+
+</script> 

@@ -23,6 +23,8 @@ full.addEventListener("click", ()=>{
             myDocument.webkitRequestFullscreen();
         }
         full.textContent = "Minimize";
+        $('#full-screen').hide();
+        $('#minimize').show();
     }
     else{
         if(document.exitFullscreen) {
@@ -39,6 +41,8 @@ full.addEventListener("click", ()=>{
         }
 
         full.textContent = "Fullscreen";
+        $('#full-screen').show();
+        $('#minimize').hide();
     }
 });
 
