@@ -8,7 +8,7 @@ $('.a-form-container').hide();
 let myDocument = document.documentElement;
 let full = document.getElementById("fullscreen");
 
-full.addEventListener("click", ()=>{
+$('.tag.full-screen').on("click", ()=>{
     if(full.textContent == "Fullscreen"){
         if (myDocument.requestFullscreen) {
             myDocument.requestFullscreen();
